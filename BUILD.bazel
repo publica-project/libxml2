@@ -1,0 +1,43 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "html.go",
+        "libxml2.go",
+        "parser.go",
+    ],
+    cgo = True,
+    importpath = "github.com/lestrrat-go/libxml2",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//clib:go_default_library",
+        "//dom:go_default_library",
+        "//parser:go_default_library",
+        "//types:go_default_library",
+        "@com_github_pkg_errors//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = [
+        "html_test.go",
+        "libxml2_bench_test.go",
+        "libxml2_example_test.go",
+        "parser_test.go",
+        "xml_test.go",
+        "xsd_test.go",
+    ],
+    embed = [":go_default_library"],
+    deps = [
+        "//clib:go_default_library",
+        "//dom:go_default_library",
+        "//parser:go_default_library",
+        "//types:go_default_library",
+        "//xpath:go_default_library",
+        "//xsd:go_default_library",
+        "@com_github_stretchr_testify//assert:go_default_library",
+        "@in_gopkg_xmlpath_v1//:go_default_library",
+    ],
+)
