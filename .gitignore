@@ -22,3 +22,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+bazel-bin/
+bazel-genfiles/
+bazel-libxml2/
+bazel-out/
+bazel-testlogs/
