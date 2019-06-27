@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "interface.go",
+        "types.go",
+    ],
+    importpath = "github.com/publica-project/libxml2/types",
+    visibility = ["//visibility:public"],
+    deps = ["//clib:go_default_library"],
+)

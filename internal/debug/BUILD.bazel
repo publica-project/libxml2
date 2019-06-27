@@ -1,0 +1,8 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["debug_off.go"],
+    importpath = "github.com/publica-project/libxml2/internal/debug",
+    visibility = ["//:__subpackages__"],
+)

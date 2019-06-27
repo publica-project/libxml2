@@ -5,8 +5,8 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/lestrrat-go/libxml2/clib"
-	"github.com/lestrrat-go/libxml2/types"
+	"github.com/publica-project/libxml2/clib"
+	"github.com/publica-project/libxml2/types"
 )
 
 // SetNamespace sets up a new namespace on the given node.

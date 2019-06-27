@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "interface.go",
+        "iterator.go",
+        "util.go",
+        "xpath.go",
+    ],
+    importpath = "github.com/publica-project/libxml2/xpath",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//clib:go_default_library",
+        "//types:go_default_library",
+        "@com_github_pkg_errors//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["xpath_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//:go_default_library",
+        "@com_github_stretchr_testify//assert:go_default_library",
+    ],
+)
